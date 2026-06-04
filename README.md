@@ -29,8 +29,6 @@ curl -X POST http://localhost:8000/admin/load-pos \
 curl http://localhost:8000/stores/ST1008/metrics
 ```
 
-> **No manual steps beyond git clone.** Docker Compose starts PostgreSQL, the FastAPI API, and the nginx dashboard in one command.
-
 ---
 
 ## Project Structure
@@ -138,43 +136,7 @@ bash run.sh clips/Store1/ STORE_BLR_001 "2026-04-10T12:00:00" http://localhost:8
 
 ## Feeding Events into the API
 
-### Option A: One-command pipeline (via run.sh)
-
-```bash
-bash run.sh clips/Store1/ STORE_BLR_001 "2026-04-10T12:00:00" http://localhost:8000
-```
-
-### Option B: Ingest a JSONL file in batches
-
-```bash
-python - <<'EOF'
-import json, urllib.request
-events = [json.loads(l) for l in open("data/events.jsonl") if l.strip()]
-for i in range(0, len(events), 500):
-    batch = events[i:i+500]
-    data = json.dumps({"events": batch}).encode()
-    req = urllib.request.Request("http://localhost:8000/events/ingest", data=data,
-          headers={"Content-Type": "application/json"}, method="POST")
-    with urllib.request.urlopen(req) as r:
-        print(f"Batch {i//500+1}:", json.loads(r.read()))
-EOF
-```
-
-### Option C: Ingest the provided sample events
-
-```bash
-python - <<'EOF'
-import json, urllib.request
-events = [json.loads(l) for l in open("data/sample_events.jsonl") if l.strip()]
-data = json.dumps({"events": events}).encode()
-req = urllib.request.Request("http://localhost:8000/events/ingest", data=data,
-      headers={"Content-Type": "application/json"}, method="POST")
-with urllib.request.urlopen(req) as r:
-    print(json.loads(r.read()))
-EOF
-```
-
-### Option D: Run the live feed simulator (for dashboard demo)
+### Run the live feed simulator (for dashboard demo)
 
 ```bash
 pip install requests
