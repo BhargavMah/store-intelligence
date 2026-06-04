@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: store_intelligence_db
+    environment:
+      POSTGRES_DB: storedb
+      POSTGRES_USER: api
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U api -d storedb"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: store_intelligence_api
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: "postgresql://api:secret@db/storedb"
+      POS_CSV_PATH: "/data/pos_transactions.csv"
+      POS_STORE_ID: "ST1008"
+    volumes:
+      - ./data:/data:ro
+      - ./store_layout.json:/app/store_layout.json:ro
+    restart: on-failure
+    command: >
+      uvicorn main:app --host 0.0.0.0 --port 8000 --workers 2
+
+  dashboard:
+    image: nginx:alpine
+    container_name: store_intelligence_dashboard
+    depends_on:
+      - api
+    ports:
+      - "3000:80"
+    volumes:
+      - ./dashboard.html:/usr/share/nginx/html/index.html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+
+volumes:
+  pgdata:

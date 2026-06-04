@@ -1,0 +1,13 @@
+# Detection Pipeline dependencies
+ultralytics>=8.2.0        # YOLOv8 + ByteTrack built-in
+opencv-python>=4.9.0
+numpy>=1.26.0
+pydantic>=2.5.0
+
+# Optional: Re-ID with torchreid (uncomment if GPU available)
+# torch>=2.1.0
+# torchvision>=0.16.0
+# torchreid>=0.2.5
+
+# Optional: VLM staff classification
+# google-generativeai>=0.5.0

@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+
+# Test artifacts
+.coverage
+.pytest_cache/
+htmlcov/
+*.db
+
+# Model weights (downloaded automatically by ultralytics)
+*.pt
+*.onnx
+*.engine
+
+# Data (large CCTV clips & event logs — keep pos_transactions.csv)
+data/events_*.jsonl
+clips/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Docker
+*.log

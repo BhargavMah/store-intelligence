@@ -1,0 +1,176 @@
+{
+  "stores": {
+    "STORE_BLR_001": {
+      "store_name": "Brigade Road Bangalore Store 1",
+      "city": "Bangalore",
+      "open_hours": {"open": "10:00", "close": "22:00"},
+      "cameras": {
+        "CAM_ENTRY_01": {
+          "description": "Entry/Exit threshold camera",
+          "type": "entry",
+          "entry_line": {"y": 0.65, "direction": "vertical"},
+          "zones_covered": ["ENTRY_EXIT_ZONE"]
+        },
+        "CAM_FLOOR_01": {
+          "description": "Main floor zone coverage",
+          "type": "floor",
+          "zones_covered": ["LEFT_SHELF", "CENTER_DISPLAY", "LIPSTICK_AISLE", "SKINCARE_ZONE", "HAIRCARE_ZONE"]
+        },
+        "CAM_BILLING_01": {
+          "description": "Billing counter area",
+          "type": "billing",
+          "zones_covered": ["BILLING_COUNTER"]
+        }
+      },
+      "zones": [
+        {
+          "zone_id": "ENTRY_EXIT_ZONE",
+          "zone_name": "Entry / Exit",
+          "zone_type": "ENTRY",
+          "is_revenue_zone": false,
+          "camera_id": "CAM_ENTRY_01",
+          "polygon_norm": [[0.0, 0.55], [1.0, 0.55], [1.0, 1.0], [0.0, 1.0]]
+        },
+        {
+          "zone_id": "LEFT_SHELF",
+          "zone_name": "Left Shelf",
+          "zone_type": "SHELF",
+          "sku_zone": "FOUNDATION",
+          "is_revenue_zone": true,
+          "camera_id": "CAM_FLOOR_01",
+          "polygon_norm": [[0.0, 0.0], [0.35, 0.0], [0.35, 0.7], [0.0, 0.7]]
+        },
+        {
+          "zone_id": "CENTER_DISPLAY",
+          "zone_name": "Center Display",
+          "zone_type": "DISPLAY",
+          "sku_zone": "MOISTURISER",
+          "is_revenue_zone": true,
+          "camera_id": "CAM_FLOOR_01",
+          "polygon_norm": [[0.35, 0.0], [0.65, 0.0], [0.65, 0.7], [0.35, 0.7]]
+        },
+        {
+          "zone_id": "LIPSTICK_AISLE",
+          "zone_name": "Lipstick Aisle",
+          "zone_type": "SHELF",
+          "sku_zone": "LIPSTICK",
+          "is_revenue_zone": true,
+          "camera_id": "CAM_FLOOR_01",
+          "polygon_norm": [[0.65, 0.0], [1.0, 0.0], [1.0, 0.7], [0.65, 0.7]]
+        },
+        {
+          "zone_id": "SKINCARE_ZONE",
+          "zone_name": "Skincare",
+          "zone_type": "SHELF",
+          "sku_zone": "SKINCARE",
+          "is_revenue_zone": true,
+          "camera_id": "CAM_FLOOR_01",
+          "polygon_norm": [[0.0, 0.7], [0.5, 0.7], [0.5, 1.0], [0.0, 1.0]]
+        },
+        {
+          "zone_id": "HAIRCARE_ZONE",
+          "zone_name": "Haircare",
+          "zone_type": "SHELF",
+          "sku_zone": "HAIRCARE",
+          "is_revenue_zone": true,
+          "camera_id": "CAM_FLOOR_01",
+          "polygon_norm": [[0.5, 0.7], [1.0, 0.7], [1.0, 1.0], [0.5, 1.0]]
+        },
+        {
+          "zone_id": "BILLING_COUNTER",
+          "zone_name": "Billing Counter Queue",
+          "zone_type": "BILLING",
+          "is_revenue_zone": true,
+          "camera_id": "CAM_BILLING_01",
+          "polygon_norm": [[0.0, 0.0], [1.0, 0.0], [1.0, 1.0], [0.0, 1.0]]
+        }
+      ]
+    },
+    "STORE_BLR_002": {
+      "store_name": "Brigade Road Bangalore Store 2",
+      "city": "Bangalore",
+      "open_hours": {"open": "10:00", "close": "22:00"},
+      "cameras": {
+        "CAM_ENTRY_01": {
+          "description": "Entry/Exit threshold camera",
+          "type": "entry",
+          "entry_line": {"y": 0.65, "direction": "vertical"},
+          "zones_covered": ["ENTRY_EXIT_ZONE"]
+        },
+        "CAM_FLOOR_01": {
+          "description": "Main floor zone coverage",
+          "type": "floor",
+          "zones_covered": ["LEFT_SHELF", "CENTER_DISPLAY", "LIPSTICK_AISLE", "SKINCARE_ZONE", "HAIRCARE_ZONE"]
+        },
+        "CAM_BILLING_01": {
+          "description": "Billing counter area",
+          "type": "billing",
+          "zones_covered": ["BILLING_COUNTER"]
+        }
+      },
+      "zones": [
+        {
+          "zone_id": "ENTRY_EXIT_ZONE",
+          "zone_name": "Entry / Exit",
+          "zone_type": "ENTRY",
+          "is_revenue_zone": false,
+          "camera_id": "CAM_ENTRY_01",
+          "polygon_norm": [[0.0, 0.55], [1.0, 0.55], [1.0, 1.0], [0.0, 1.0]]
+        },
+        {
+          "zone_id": "LEFT_SHELF",
+          "zone_name": "Left Shelf",
+          "zone_type": "SHELF",
+          "sku_zone": "FOUNDATION",
+          "is_revenue_zone": true,
+          "camera_id": "CAM_FLOOR_01",
+          "polygon_norm": [[0.0, 0.0], [0.35, 0.0], [0.35, 0.7], [0.0, 0.7]]
+        },
+        {
+          "zone_id": "CENTER_DISPLAY",
+          "zone_name": "Center Display",
+          "zone_type": "DISPLAY",
+          "sku_zone": "MOISTURISER",
+          "is_revenue_zone": true,
+          "camera_id": "CAM_FLOOR_01",
+          "polygon_norm": [[0.35, 0.0], [0.65, 0.0], [0.65, 0.7], [0.35, 0.7]]
+        },
+        {
+          "zone_id": "LIPSTICK_AISLE",
+          "zone_name": "Lipstick Aisle",
+          "zone_type": "SHELF",
+          "sku_zone": "LIPSTICK",
+          "is_revenue_zone": true,
+          "camera_id": "CAM_FLOOR_01",
+          "polygon_norm": [[0.65, 0.0], [1.0, 0.0], [1.0, 0.7], [0.65, 0.7]]
+        },
+        {
+          "zone_id": "SKINCARE_ZONE",
+          "zone_name": "Skincare",
+          "zone_type": "SHELF",
+          "sku_zone": "SKINCARE",
+          "is_revenue_zone": true,
+          "camera_id": "CAM_FLOOR_01",
+          "polygon_norm": [[0.0, 0.7], [0.5, 0.7], [0.5, 1.0], [0.0, 1.0]]
+        },
+        {
+          "zone_id": "HAIRCARE_ZONE",
+          "zone_name": "Haircare",
+          "zone_type": "SHELF",
+          "sku_zone": "HAIRCARE",
+          "is_revenue_zone": true,
+          "camera_id": "CAM_FLOOR_01",
+          "polygon_norm": [[0.5, 0.7], [1.0, 0.7], [1.0, 1.0], [0.5, 1.0]]
+        },
+        {
+          "zone_id": "BILLING_COUNTER",
+          "zone_name": "Billing Counter Queue",
+          "zone_type": "BILLING",
+          "is_revenue_zone": true,
+          "camera_id": "CAM_BILLING_01",
+          "polygon_norm": [[0.0, 0.0], [1.0, 0.0], [1.0, 1.0], [0.0, 1.0]]
+        }
+      ]
+    }
+  }
+}
