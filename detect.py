@@ -28,6 +28,14 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+# Fix Windows terminal encoding (CP1252 can't print unicode arrows etc.)
+if sys.stdout.encoding and sys.stdout.encoding.lower() not in ("utf-8", "utf8"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except AttributeError:
+        pass  # Python < 3.7
+
 import cv2
 
 # ── Lazy imports (so the file can be imported in tests without GPU) ─────────
@@ -251,7 +259,7 @@ def main():
         print("[ERROR] No video clips found. Use --video or --store-dir.", file=sys.stderr)
         sys.exit(1)
 
-    print(f"[detect] Processing {len(clips)} clip(s) → {args.out}")
+    print(f"[detect] Processing {len(clips)} clip(s) -> {args.out}")
 
     with EventEmitter(output_path=args.out) as emitter:
         for video_path, camera_id in clips:

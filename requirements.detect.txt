@@ -3,6 +3,7 @@ ultralytics>=8.2.0        # YOLOv8 + ByteTrack built-in
 opencv-python>=4.9.0
 numpy>=1.26.0
 pydantic>=2.5.0
+lap>=0.5.12               # ByteTrack Hungarian-algorithm solver (required for tracking)
 
 # Optional: Re-ID with torchreid (uncomment if GPU available)
 # torch>=2.1.0
